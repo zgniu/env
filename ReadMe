@@ -1,1 +1,9 @@
 nginx+php in docker 
+
+www 网站目录
+php 构建php镜像
+nginx 构建nginx镜像
+logs nginx+php日志目录
+docker-compose.yml 根据该文件开始构建
+
+docker-composer up --build -d
