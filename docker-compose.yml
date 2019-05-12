@@ -1,0 +1,30 @@
+version: "2"
+
+services:
+    php:
+        build: ./php
+        # volumes:  # TODO 日志
+        volumes: 
+            # 网站配置
+            - ./www/:/www/  
+            # 日志配置
+            - ./logs/php:/var/log/php
+  
+    nginx: 
+        build: ./nginx
+        ports: 
+            - 8080:80
+        links: 
+            - php
+        depends_on:
+            - php
+        volumes:
+            # ngixn 主配置
+            - ./nginx/:/etc/nginx/
+            # nginx 配置
+            # - ./nginx/conf.d:/etc/nginx/conf.d  
+            # 网站配置
+            - ./www/:/www/  
+            # 日志配置
+            - ./logs/nginx/:/var/log/nginx/
+
