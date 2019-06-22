@@ -1,0 +1,2 @@
+2019/06/22 19:20:20 [emerg] 6#6: open() "/etc/nginx/nginx.conf" failed (2: No such file or directory)
+2019/06/22 19:34:10 [emerg] 6#6: open() "/etc/nginx/nginx.conf" failed (2: No such file or directory)

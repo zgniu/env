@@ -1,6 +1,7 @@
 nginx+php in docker 
 
-www 网站目录
+data 网站目录和数据库目录
+connfig nginx配置和mysql配置
 php 构建php镜像
 nginx 构建nginx镜像
 logs nginx+php日志目录

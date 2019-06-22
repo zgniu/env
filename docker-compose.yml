@@ -1,12 +1,21 @@
 version: "2"
 
 services:
+    mysql:
+        image: mysql:5.6
+        ports:
+            - 10036:3306
+        volumes: 
+            - ./data/mysql/:/var/lib/mysql
+            - ./config/mysql/:/etc/mysql/
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
     php:
         build: ./php
         # volumes:  # TODO 日志
         volumes: 
             # 网站配置
-            - ./www/:/www/  
+            - ./data/www/:/www/  
             # 日志配置
             - ./logs/php:/var/log/php
   
@@ -20,11 +29,9 @@ services:
             - php
         volumes:
             # ngixn 主配置
-            - ./nginx/:/etc/nginx/
-            # nginx 配置
-            # - ./nginx/conf.d:/etc/nginx/conf.d  
+            - ./config/nginx/:/etc/nginx/
             # 网站配置
-            - ./www/:/www/  
+            - ./data/www/:/www/  
             # 日志配置
             - ./logs/nginx/:/var/log/nginx/
 
