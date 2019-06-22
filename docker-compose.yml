@@ -3,8 +3,6 @@ version: "2"
 services:
     mysql:
         image: mysql:5.6
-        ports:
-            - 10036:3306
         volumes: 
             - ./data/mysql/:/var/lib/mysql
             - ./config/mysql/:/etc/mysql/
@@ -22,7 +20,7 @@ services:
     nginx: 
         build: ./nginx
         ports: 
-            - 8080:80
+            - 18082:82
         links: 
             - php
         depends_on:
